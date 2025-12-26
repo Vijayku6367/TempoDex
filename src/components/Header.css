@@ -1,0 +1,298 @@
+/* ============================= */
+/* HEADER – PRODUCTION FINAL    */
+/* ============================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============================= */
+/* LEFT – LOGO */
+/* ============================= */
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 26px;
+}
+
+.logo h1 {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-gold), #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-accent {
+  -webkit-text-fill-color: var(--accent-gold);
+}
+
+/* ============================= */
+/* BLOCK INFO (DESKTOP ONLY) */
+/* ============================= */
+
+.block-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+}
+
+.block-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.block-number {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ============================= */
+/* RIGHT – CONTROLS */
+/* ============================= */
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============================= */
+/* NETWORK */
+/* ============================= */
+
+.network-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  font-size: 13px;
+}
+
+.network-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--success);
+  border-radius: 50%;
+}
+
+/* ============================= */
+/* WALLET */
+/* ============================= */
+
+.wallet-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wallet-address {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.disconnect-button {
+  padding: 6px 10px;
+  font-size: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.disconnect-button:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.connect-wallet-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-gold), #f8d12f);
+  color: #000;
+}
+
+/* ============================= */
+/* WALLET MENU */
+/* ============================= */
+
+.wallet-menu {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  margin-top: 8px;
+  width: 300px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.wallet-menu-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.wallet-options {
+  padding: 12px;
+}
+
+.wallet-option {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 10px;
+}
+
+.wallet-option:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* 🔥 MOBILE FIX */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .header-container {
+    padding: 10px 12px;
+  }
+
+  /* Hide desktop-only info */
+  .block-info {
+    display: none;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  .logo-icon {
+    font-size: 22px;
+  }
+
+  .header-controls {
+    gap: 6px;
+  }
+
+  .wallet-address {
+    display: none;
+  }
+
+  .disconnect-button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .connect-wallet-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .network-indicator {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .wallet-menu {
+    left: 10px;
+    right: 10px;
+    width: auto;
+  }
+}
+/* ============================= */
+/* Desktop Navigation (Header) */
+/* ============================= */
+
+.desktop-nav {
+  display: flex;
+  gap: 28px;
+  margin-left: 32px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-gold);
+}
+
+.nav-link.active {
+  color: var(--accent-gold);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+/* ============================= */
+/* MOBILE FIX 🔥 */
+/* ============================= */
+
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none; /* ⬅️ HEADER NAV HIDDEN ON MOBILE */
+  }
+}

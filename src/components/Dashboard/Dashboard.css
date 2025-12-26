@@ -1,0 +1,295 @@
+/* ===================================================== */
+/* DESIGN TOKENS (FIGMA ↔ DEV 1:1 MAPPING)               */
+/* ===================================================== */
+
+:root {
+  /* ---------- COLORS ---------- */
+  --surface-primary: rgba(255, 255, 255, 0.04);
+  --surface-secondary: rgba(255, 255, 255, 0.06);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(240, 185, 11, 0.6);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-tertiary: rgba(255, 255, 255, 0.48);
+
+  --accent-gold: #f0b90b;
+  --accent-gold-soft: rgba(240, 185, 11, 0.18);
+
+  /* ---------- SPACING SCALE ---------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* ---------- RADII ---------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ---------- ELEVATION ---------- */
+  --elevation-1: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --elevation-2: 0 12px 40px rgba(240, 185, 11, 0.18);
+
+  /* ---------- MOTION ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --motion-fast: 160ms;
+  --motion-normal: 260ms;
+}
+
+/* ===================================================== */
+/* DASHBOARD LAYOUT                                      */
+/* ===================================================== */
+
+.dashboard {
+  grid-column: 1;
+  animation: dashboardFade 0.4s var(--ease-standard);
+}
+
+.dashboard .glass-card {
+  padding: var(--space-32);
+}
+
+/* ===================================================== */
+/* TITLE                                                 */
+/* ===================================================== */
+
+.dashboard h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-32);
+}
+
+/* ===================================================== */
+/* SUMMARY (KPI) CARDS                                   */
+/* ===================================================== */
+
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-16);
+  margin-bottom: 40px;
+}
+
+.summary-item {
+  position: relative;
+  padding: var(--space-24);
+  border-radius: var(--radius-md);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--elevation-1);
+  transition: transform var(--motion-normal) var(--ease-standard),
+              box-shadow var(--motion-normal) var(--ease-standard),
+              border-color var(--motion-fast);
+  overflow: hidden;
+}
+
+/* Top accent glow */
+.summary-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at top left,
+    var(--accent-gold-soft),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity var(--motion-normal);
+}
+
+.summary-item:hover::before {
+  opacity: 1;
+}
+
+.summary-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow: var(--elevation-2);
+}
+
+.summary-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-8);
+}
+
+.summary-value {
+  font-size: 28px;
+  font-weight: 800;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.02em;
+}
+
+/* ===================================================== */
+/* BALANCES SECTION                                      */
+/* ===================================================== */
+
+.balances-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: var(--space-20);
+  color: var(--text-secondary);
+}
+
+/* ===================================================== */
+/* BALANCE GRID                                          */
+/* ===================================================== */
+
+.balances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--space-16);
+}
+
+/* ===================================================== */
+/* BALANCE CARD                                          */
+/* ===================================================== */
+
+.balance-card {
+  position: relative;
+  padding: var(--space-20);
+  border-radius: var(--radius-md);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--elevation-1);
+  transition: transform var(--motion-normal) var(--ease-standard),
+              box-shadow var(--motion-normal),
+              border-color var(--motion-fast);
+  overflow: hidden;
+}
+
+.balance-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(240, 185, 11, 0.14),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--motion-normal);
+}
+
+.balance-card:hover::after {
+  opacity: 1;
+}
+
+.balance-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--border-strong);
+  box-shadow: var(--elevation-2);
+}
+
+/* ===================================================== */
+/* BALANCE HEADER                                        */
+/* ===================================================== */
+
+.balance-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+}
+
+.token-icon-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-gold),
+    #ffcc4d
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #000;
+  animation: tokenPulse 3s infinite;
+}
+
+.token-info-small {
+  flex: 1;
+}
+
+.token-symbol {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.token-name {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* ===================================================== */
+/* BALANCE VALUE                                         */
+/* ===================================================== */
+
+.balance-amount {
+  font-size: 18px;
+  font-weight: 800;
+  font-feature-settings: "tnum";
+  text-align: right;
+}
+
+/* ===================================================== */
+/* ANIMATIONS                                            */
+/* ===================================================== */
+
+@keyframes dashboardFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tokenPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(240, 185, 11, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(240, 185, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(240, 185, 11, 0);
+  }
+}
+
+/* ===================================================== */
+/* MOBILE OPTIMIZATION                                   */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+  .dashboard .glass-card {
+    padding: var(--space-24);
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .balances-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .balances-grid {
+    grid-template-columns: 1fr;
+  }
+}

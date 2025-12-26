@@ -1,0 +1,173 @@
+/* ===================================== */
+/* BOTTOM NAVIGATION (MOBILE FIRST) */
+/* ===================================== */
+
+.bottom-navigation {
+  position: fixed;
+  bottom: env(safe-area-inset-bottom);
+  left: 0;
+  right: 0;
+
+  height: 72px;
+  padding: 8px 12px 12px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(26, 35, 50, 0.85),
+    rgba(17, 24, 39, 0.95)
+  );
+
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--glass-border);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1000;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* ===================================== */
+/* NAV BUTTON */
+/* ===================================== */
+
+.nav-button {
+  flex: 1;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+
+  position: relative;
+  border-radius: var(--radius-md);
+}
+
+/* Tap feedback */
+.nav-button:active {
+  transform: scale(0.96);
+}
+
+/* ===================================== */
+/* ICON */
+/* ===================================== */
+
+.nav-icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+/* ===================================== */
+/* LABEL */
+/* ===================================== */
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ===================================== */
+/* ACTIVE STATE */
+/* ===================================== */
+
+.nav-button.active {
+  color: var(--accent-gold);
+}
+
+.nav-button.active .nav-icon {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Active glow pill */
+.nav-button.active::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: rgba(240, 185, 11, 0.12);
+  border-radius: var(--radius-md);
+  z-index: -1;
+  animation: navGlow 1.8s ease-in-out infinite;
+}
+
+/* Active indicator dot */
+.nav-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+}
+
+/* ===================================== */
+/* HOVER (DESKTOP SAFETY) */
+/* ===================================== */
+
+@media (hover: hover) {
+  .nav-button:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-button.active:hover {
+    color: var(--accent-gold);
+  }
+}
+
+/* ===================================== */
+/* ANIMATIONS */
+/* ===================================== */
+
+@keyframes navGlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ===================================== */
+/* DESKTOP HIDE */
+/* ===================================== */
+
+@media (min-width: 1024px) {
+  .bottom-navigation {
+    display: none;
+  }
+}
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
+  color: var(--text-tertiary);
+  transition: all 0.2s ease;
+}
+
+.nav-button.active .nav-icon {
+  filter: drop-shadow(0 0 6px rgba(240,185,11,0.6));
+  color: var(--accent-gold);
+}
+
+.nav-button.active .nav-label {
+  color: var(--accent-gold);
+}
+/* Desktop pe hide */
+@media (min-width: 768px) {
+  .bottom-navigation {
+    display: none;
+  }
+}

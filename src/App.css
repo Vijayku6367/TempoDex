@@ -1,0 +1,115 @@
+/* ================================ */
+/* APP ROOT */
+/* ================================ */
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ================================ */
+/* MAIN CONTENT */
+/* ================================ */
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 96px; /* bottom space for mobile nav */
+}
+
+/* ================================ */
+/* LAYOUT CONTAINER */
+/* ================================ */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ================================ */
+/* CONNECT WALLET PROMPT */
+/* ================================ */
+
+.connect-prompt {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ================================ */
+/* GLASS CARD */
+/* ================================ */
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--blur-bg);
+  animation: slideUp 0.25s ease-out;
+}
+
+/* ================================ */
+/* DESKTOP LAYOUT */
+/* ================================ */
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 32px 24px 32px;
+  }
+
+  .container {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    align-items: start;
+  }
+}
+
+/* ================================ */
+/* LARGE SCREENS */
+/* ================================ */
+
+@media (min-width: 1280px) {
+  .main-content {
+    max-width: 1280px;
+  }
+}
+
+/* ================================ */
+/* MOBILE FIXES */
+/* ================================ */
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 16px 12px 96px;
+  }
+
+  .glass-card {
+    padding: 20px;
+    border-radius: var(--radius-md);
+  }
+}
+.main-content {
+  padding-bottom: 96px; /* bottom nav safe space */
+}
+/* ===== MOBILE SAFE AREA FIX ===== */
+.main-content {
+  padding-bottom: 96px; /* bottom nav height */
+}
+
+/* desktop pe nahi chahiye */
+@media (min-width: 769px) {
+  .main-content {
+    padding-bottom: 0;
+  }
+}

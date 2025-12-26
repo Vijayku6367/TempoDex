@@ -1,0 +1,209 @@
+/* ================================ */
+/* GLOBAL RESET */
+/* ================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================ */
+/* ROOT THEME TOKENS */
+/* ================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2332;
+  --glass-bg: rgba(20, 25, 40, 0.75);
+
+  /* Borders */
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Accent */
+  --accent-gold: #f0b90b;
+  --accent-gold-hover: #f8d12f;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  /* Status */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Effects */
+  --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --blur-bg: blur(14px);
+
+  /* Radius */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* Motion */
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================ */
+/* BODY */
+/* ================================ */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================ */
+/* COMMON ELEMENTS */
+/* ================================ */
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================================ */
+/* GLASS CARD */
+/* ================================ */
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--blur-bg);
+}
+
+/* ================================ */
+/* TEXT HELPERS */
+/* ================================ */
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-error {
+  color: var(--error);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+/* ================================ */
+/* BUTTON HELPERS */
+/* ================================ */
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent-gold),
+    var(--accent-gold-hover)
+  );
+  color: #000;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(240, 185, 11, 0.4);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+}
+
+/* ================================ */
+/* ANIMATIONS */
+/* ================================ */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ================================ */
+/* MOBILE FIXES */
+/* ================================ */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .glass-card {
+    border-radius: var(--radius-md);
+  }
+}
